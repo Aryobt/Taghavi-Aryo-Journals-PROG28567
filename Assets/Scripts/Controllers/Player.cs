@@ -19,14 +19,20 @@ public class Player : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.T))
         {
-           // bombTrailSpacing (new Vector3(0,1,0));
+         //  bombTrailSpacing (new Vector3(0,1,0));
 
         }
     }
 
-    private void SpawnBombAtOffset (Vector3 inOffset)
+    public void SpawnBombAtOffset (Vector3 inOffset)
     {
         Vector3 spawnPosition = transform.position + inOffset;
         Instantiate(bombPrefab, spawnPosition, Quaternion.identity);    
     }
+
+    //public void bombTrailSpacing (Vector3 inOffset)
+   // {
+      //  Vector3 spawnPosition = transform.position - inOffset;
+      //  Instantiate(bombPrefab,spawnPosition, Quaternion.identity);
+  //  }
 }
