@@ -19,7 +19,7 @@ public class Player : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.T))
         {
-         //  bombTrailSpacing (new Vector3(0,1,0));
+            SpawnBombTrail (new Vector3(0,1,0));
 
         }
     }
@@ -30,9 +30,9 @@ public class Player : MonoBehaviour
         Instantiate(bombPrefab, spawnPosition, Quaternion.identity);    
     }
 
-    //public void bombTrailSpacing (Vector3 inOffset)
-   // {
-      //  Vector3 spawnPosition = transform.position - inOffset;
-      //  Instantiate(bombPrefab,spawnPosition, Quaternion.identity);
-  //  }
+    public void SpawnBombTrail(Vector3 inOffset)
+    {
+        Vector3 spawnPosition = transform.position - inOffset;
+      Instantiate(bombPrefab,spawnPosition, Quaternion.identity);
+   }
 }
