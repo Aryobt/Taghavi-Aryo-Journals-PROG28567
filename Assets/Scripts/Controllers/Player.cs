@@ -13,9 +13,10 @@ public class Player : MonoBehaviour
     public float bombTrailSpacing;
     public int numberOfTrailBombs;
     public float inDistance = 1f;
-  // public Button moveButton;
-   // public void WarpPlayer(Transform target, float ratio);
-    
+    // public Button moveButton;
+    public Transform targetTransform;
+    [Range(0f, 2f)] public float ratio = 0.5f;
+
     // Update is called once per frame
     void Update()
     {
@@ -60,8 +61,12 @@ public class Player : MonoBehaviour
         Vector3 spawnPos = transform.position + randomDirection.normalized * inDistance;
         Instantiate(bombPrefab, spawnPos, Quaternion.identity);
     }
-    void OnButtonClick()
+    //void OnButtonClick()
+   // {
+      //  Debug.Log("Button clicked!");
+    //}
+     public void WarpToTarget()
     {
-        Debug.Log("Button clicked!");
+    
     }
 }
