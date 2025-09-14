@@ -1,6 +1,9 @@
 ﻿using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.UIElements;
+using static UnityEngine.InputSystem.HID.HID;
 
 public class Player : MonoBehaviour
 {
@@ -10,7 +13,9 @@ public class Player : MonoBehaviour
     public float bombTrailSpacing;
     public int numberOfTrailBombs;
     public float inDistance = 1f;
-
+  // public Button moveButton;
+   // public void WarpPlayer(Transform target, float ratio);
+    
     // Update is called once per frame
     void Update()
     {
@@ -25,7 +30,10 @@ public class Player : MonoBehaviour
             SpawnBombTrail (new Vector3(0,1,0));
 
         }
-
+       // if (moveButton != null)
+       // {
+           // moveButton.onClick.AddListener(OnButtonClick);
+       // }
 
     }
 
@@ -51,5 +59,9 @@ public class Player : MonoBehaviour
         Vector3 randomDirection = directions[Random.Range(0, directions.Length)];
         Vector3 spawnPos = transform.position + randomDirection.normalized * inDistance;
         Instantiate(bombPrefab, spawnPos, Quaternion.identity);
+    }
+    void OnButtonClick()
+    {
+        Debug.Log("Button clicked!");
     }
 }
