@@ -37,10 +37,7 @@ public class Player : MonoBehaviour
        // {
            // moveButton.onClick.AddListener(OnButtonClick);
        // }
-       if (Input.GetKeyDown(KeyCode.S))
-        {
-         
-        }
+      
 
     }
 
