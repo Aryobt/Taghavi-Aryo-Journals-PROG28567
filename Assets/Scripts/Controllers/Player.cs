@@ -16,6 +16,8 @@ public class Player : MonoBehaviour
     // public Button moveButton;
     public Transform targetTransform;
     [Range(0f, 2f)] public float ratio = 0.5f;
+    public float inMaxRange = 2.5f;
+    public Transform other;
 
     // Update is called once per frame
     void Update()
@@ -35,6 +37,10 @@ public class Player : MonoBehaviour
        // {
            // moveButton.onClick.AddListener(OnButtonClick);
        // }
+       if (Input.GetKeyDown(KeyCode.S))
+        {
+         
+        }
 
     }
 
@@ -53,9 +59,7 @@ public class Player : MonoBehaviour
     {
         Vector3[] directions = new Vector3[]
             {
-            new Vector3(-1, 0, 1),
-            new Vector3(1, 0, 1),
-            new Vector3(-1, 0, -1),
+            new Vector3(-1, 0, 1), new Vector3(1, 0, 1), new Vector3(-1, 0, -1)
             };
         Vector3 randomDirection = directions[Random.Range(0, directions.Length)];
         Vector3 spawnPos = transform.position + randomDirection.normalized * inDistance;
@@ -68,5 +72,14 @@ public class Player : MonoBehaviour
      public void WarpToTarget()
     {
     
+    }
+
+    public void DetectAsteroids()
+    {
+        inMaxRange = Vector3.Distance(other.position, transform.position);
+        Vector3[] inAsteroids = new Vector3[]{
+            new Vector3(-13f, -1f,0f), new Vector3(4f, -2f,0f), new Vector3(11f, 3f, 0f), new Vector3(2f,7f,0f), new Vector3(-6f, -1f, 0f)
+        };
+       // Debug.DrawLine(Player, new Vector3);
     }
 }
